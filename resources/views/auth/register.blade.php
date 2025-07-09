@@ -17,11 +17,17 @@
                         <div class="form-floating mb-3">
                             <input class="form-control form-control_gray " value="{{ old('name') }}" name="name" value="" required="" autocomplete="name" autofocus="">
                             <label for="name">Name</label>
+                            @error('name')
+                            <span class="text-danger">{{ $message }}</span>
+                            @enderror
                         </div>
                         <div class="pb-3"></div>
                         <div class="form-floating mb-3">
                             <input id="email" type="email" class="form-control form-control_gray " value="{{ old('email') }}" name="email" value="" required="" autocomplete="email">
                             <label for="email">Email address *</label>
+                            @error('email')
+                            <span class="text-danger">{{ $message }}</span>
+                            @enderror
                         </div>
 
                         <div class="pb-3"></div>
@@ -29,6 +35,9 @@
                         <div class="form-floating mb-3">
                             <input id="mobile" type="text" class="form-control form-control_gray " value="{{ old('mobile') }}" name="mobile" value="" required="" autocomplete="mobile">
                             <label for="mobile">Mobile *</label>
+                            @error('mobile')
+                            <span class="text-danger">{{ $message }}</span>
+                            @enderror
                         </div>
 
                         <div class="pb-3"></div>
@@ -36,11 +45,15 @@
                         <div class="form-floating mb-3">
                             <input id="password" type="password" class="form-control form-control_gray " value="{{ old('password') }}" name="password" required="" autocomplete="new-password">
                             <label for="password">Password *</label>
+                            @error('password')
+                            <span class="text-danger">{{ $message }}</span>
+                            @enderror
                         </div>
 
                         <div class="form-floating mb-3">
                             <input id="password-confirm" type="password" class="form-control form-control_gray" value="{{ old('password_confirmation') }}" name="password_confirmation" required="" autocomplete="new-password">
                             <label for="password">Confirm Password *</label>
+                            
                         </div>
 
                         <div class="d-flex align-items-center mb-3 pb-2">
