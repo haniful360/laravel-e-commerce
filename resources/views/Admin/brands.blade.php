@@ -21,6 +21,12 @@
                 </ul>
             </div>
 
+            @if (session('success'))
+            <div class="alert alert-success fs-2">
+                <span class="py-2">{{ session('success') }}</span>
+            </div>
+            @endif
+
             <div class="wg-box">
                 <div class="flex items-center justify-between gap10 flex-wrap">
                     <div class="wg-filter flex-grow">
@@ -33,7 +39,7 @@
                             </div>
                         </form>
                     </div>
-                    <a class="tf-button style-1 w208" href="add-brand.html"><i class="icon-plus"></i>Add new</a>
+                    <a class="tf-button style-1 w208" href="{{route('brands.create')}}"><i class="icon-plus"></i>Add new</a>
                 </div>
                 <div class="wg-table table-all-user">
                     <div class="table-responsive">
@@ -43,7 +49,7 @@
                                     <th>#</th>
                                     <th>Name</th>
                                     <th>Slug</th>
-                                    <th>Products</th>
+                                    {{-- <th>Products</th> --}}
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -81,8 +87,8 @@
                             </tbody>
                         </table>
                     </div>
-                    <div class="divider"></div>
-                    <div class="flex items-center justify-between flex-wrap gap10 wgp-pagination">
+                    {{-- <div class="divider"></div> --}}
+                    <div class="flex items-center justify-between flex-wrap gap10 py-4 wgp-pagination">
                         {{$brands->links('pagination::bootstrap-5')}}
                     </div>
                 </div>
