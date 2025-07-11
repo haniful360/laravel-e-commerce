@@ -12,11 +12,4 @@ class AdminController extends Controller
     {
         return view('Admin.index');
     }
-
-    public function brands()
-    {
-
-        $brands = Brand::orderBy('id', 'DESC')->paginate(10);
-        return view('Admin.brands', compact('brands'));
-    }
 }

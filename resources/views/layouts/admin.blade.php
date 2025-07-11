@@ -76,7 +76,7 @@
                                         </a>
                                     </li>
                                     <li class="sub-menu-item">
-                                        <a href="{{route('admin.brand')}}" class="">
+                                        <a href="{{route('brands.index')}}" class="">
                                             <div class="text">Brands</div>
                                         </a>
                                     </li>

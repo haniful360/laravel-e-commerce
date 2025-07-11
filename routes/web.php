@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Frontend\UserController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
@@ -23,15 +24,21 @@ Route::middleware('auth')->group(function () {
 
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
 
-Route::middleware(['auth'])->group(function(){
+Route::middleware(['auth'])->group(function () {
     Route::get('/account-dashboard', [UserController::class, 'index'])->name('user.index');
 });
 
-Route::middleware('auth', AdminAuth::class)->group(function(){
-    Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
-    Route::get('/admin/brands', [AdminController::class, 'brands'])->name('admin.brand');
+// Route::middleware('auth', AdminAuth::class)->group(function () {
+//     Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
+//     Route::get('/admin/brands', [BrandController::class, 'index'])->name('admin.brand');
+// });
+
+Route::middleware('auth', AdminAuth::class)->prefix('admin')->group(function () {
+    Route::get('/', [AdminController::class, 'index'])->name('admin.index');
+    Route::resource('/brands', BrandController::class);
 });
 
 
 
-require __DIR__.'/auth.php';
+
+require __DIR__ . '/auth.php';
