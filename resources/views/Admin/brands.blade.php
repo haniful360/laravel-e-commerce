@@ -43,23 +43,25 @@
                                     <th>#</th>
                                     <th>Name</th>
                                     <th>Slug</th>
-                                    <th>Image</th>
+                                    <th>Products</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach ($brands as $brand )
+
                                 <tr>
-                                    <td>4</td>
+                                    <td>{{$brand->id}}</td>
                                     <td class="pname">
                                         <div class="image">
-                                            <img src="1718066367.html" alt="" class="image">
+                                            <img src="{{asset('uploads/brands')}}/{{$brand->image}}" alt="{{$brand->name}}" class="image">
                                         </div>
                                         <div class="name">
-                                            <a href="#" class="body-title-2">Brand4</a>
+                                            <a href="#" class="body-title-2">{{$brand->name}}</a>
                                         </div>
                                     </td>
-                                    <td>brand4</td>
-                                    <td><a href="#" target="_blank">1</a></td>
+                                    <td>{{$brand->slug}}</td>
+                                    {{-- <td><a href="#" target="_blank">1</a></td> --}}
                                     <td>
                                         <div class="list-icon-function">
                                             <a href="#">
@@ -75,12 +77,13 @@
                                         </div>
                                     </td>
                                 </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
                     <div class="divider"></div>
                     <div class="flex items-center justify-between flex-wrap gap10 wgp-pagination">
-
+                        {{$brands->links('pagination::bootstrap-5')}}
                     </div>
                 </div>
             </div>
