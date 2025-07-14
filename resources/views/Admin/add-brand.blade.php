@@ -38,16 +38,6 @@
                 </div>
                 @endif
 
-                {{-- @if ($errors->any())
-                <div class="alert alert-danger">
-                    <ul class="list-disc pl-5">
-                        @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-                @endif --}}
-
             </div>
             <!-- new-category -->
             <div class="wg-box">
@@ -55,15 +45,15 @@
                     @csrf
                     <fieldset class="name">
                         <div class="body-title">Brand Name <span class="tf-color-1">*</span></div>
-                        <input class="flex-grow" type="text" placeholder="Brand name" name="name" value="{{ old('name') }}" required="">
+                        <input class="" type="text" placeholder="Brand name" name="name" value="{{ old('name') }}">
                         @error('name')
-                        <span class="text-red-500 text-sm">{{ $message }}</span>
+                        <span class="text-danger fs-4">{{ $message }}</span>
                         @enderror
                     </fieldset>
 
                     <fieldset class="name">
                         <div class="body-title">Brand Slug <span class="tf-color-1">*</span></div>
-                        <input class="flex-grow" type="text" placeholder="Brand Slug" name="slug" value="{{ old('slug') }}" required="">
+                        <input class="flex-grow" type="text" placeholder="Brand Slug" name="slug" value="{{ old('slug') }}">
                         @error('slug')
                         <span class="text-red-500 text-sm">{{ $message }}</span>
                         @enderror
@@ -102,4 +92,18 @@
         <div class="body-text">Copyright © 2024 SurfsideMedia</div>
     </div>
 </div>
+<script>
+    const fileInput = document.getElementById('myFile');
+    const preview = document.getElementById('imgpreview');
+    const previewImg = preview.querySelector('img');
+
+    fileInput.addEventListener('change', function(e) {
+        const [file] = fileInput.files;
+        if (file) {
+            previewImg.src = URL.createObjectURL(file);
+            preview.style.display = 'block';
+        }
+    });
+</script>
+
 @endsection

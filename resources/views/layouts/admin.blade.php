@@ -444,6 +444,7 @@
     <script src="{{asset('js/sweetalert.min.js')}}"></script>
     <script src="{{asset('js/apexcharts/apexcharts.js')}}"></script>
     <script src="{{asset('js/main.js')}}"></script>
+    
     <script>
         (function ($) {
 
@@ -542,5 +543,7 @@
             jQuery(window).on("resize", function () { });
         })(jQuery);
     </script>
+    @stack('script')
+    
 </body>
 </html>
