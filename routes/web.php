@@ -35,7 +35,7 @@ Route::middleware(['auth'])->group(function () {
 
 Route::middleware('auth', AdminAuth::class)->prefix('admin')->group(function () {
     Route::get('/', [AdminController::class, 'index'])->name('admin.index');
-    Route::resource('/brands', BrandController::class);
+    Route::resource('/brands', BrandController::class)->except('show');
 });
 
 
